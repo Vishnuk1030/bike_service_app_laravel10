@@ -25,7 +25,7 @@
         </li>
 
         <!-- Layouts -->
-        <li class="menu-item {{ Route::is('post.service','service.form') ? 'active' : '' }}">
+        <li class="menu-item {{ Route::is('post.service','service.form','service.form','edit_ser') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Services</div>
@@ -37,16 +37,7 @@
                         <div data-i18n="Without menu">Post new services</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Without navbar">Edit services</div>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Container">Delete services</div>
-                    </a>
-                </li>
+
 
             </ul>
         </li>

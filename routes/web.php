@@ -37,9 +37,17 @@ Route::get('/dashboard', [OwnerDashboardController::class, 'showDashboard'])->na
 Route::get('/logout', [RegisterOwnerController::class, 'logout'])->name('owner.logout');
 
 //post new room
-Route::get('/post_service',[OwnerDashboardController::class,'showpostservice'])->name('post.service');
+Route::get('/post_service', [OwnerDashboardController::class, 'showpostservice'])->name('post.service');
 
 //display the post service form
-Route::get('/post_service/create_new_services',[OwnerServiceController::class,'show_service_form'])->name('service.form');
+Route::get('/post_service/create_new_services', [OwnerServiceController::class, 'show_service_form'])->name('service.form');
 
-Route::post('/post_service/create_new_services',[OwnerServiceController::class,'create_service']);
+Route::post('/post_service/create_new_services', [OwnerServiceController::class, 'create_service']);
+
+//Delete the services
+Route::get('/post_service/{id}/delete', [OwnerServiceController::class, 'Deleteservice'])->name('delete_ser');
+
+//Edit the service
+Route::get('/post_service/{id}/edit',[OwnerServiceController::class,'Editservice'])->name('edit_ser');
+
+Route::put('/post_service/{id}/edit',[OwnerServiceController::class,'Updateservice'])->name('update_ser');

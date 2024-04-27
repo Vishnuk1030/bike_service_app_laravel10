@@ -32,21 +32,28 @@
                                             <th scope="col">Service Name</th>
                                             <th scope="col">Service Charge</th>
                                             <th scope="col">Minimum days taken to finish service</th>
+                                            <th scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($services as $service)
-
                                             <tr class="text-center">
-                                                <th scope="row">{{$service->service_id}}</th>
-                                                <td>{{$service->service_name}}</td>
-                                                <td>{{$service->service_charge}} ₹</td>
-                                                <td>{{$service->min_days_finish}}-days</td>
+                                                <th scope="row">{{ $service->service_id }}</th>
+                                                <td>{{ $service->service_name }}</td>
+                                                <td>{{ $service->service_charge }} ₹</td>
+                                                <td>{{ $service->min_days_finish }}-days</td>
+                                                <td>
+                                                    <a href="{{route('edit_ser',encrypt($service->id))}}"><img src="{{asset('assets/img/edit.png')}}" alt="dlt" width="20px"></a>
+                                                    <a href="{{ route('delete_ser', $service->id) }}"
+                                                        onclick="return confirm('Are you sure want to delete?')"><img src="{{asset('assets/img/delete.png')}}" alt="dlt" width="20px"></a>
+                                                </td>
                                             </tr>
-
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div>
+                                    {{ $services->links() }}
+                                </div>
                             </div>
                             <div class="col-lg-4 col-md-4 order-1">
                                 <div class="row">

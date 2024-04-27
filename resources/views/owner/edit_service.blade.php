@@ -21,15 +21,17 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
                             <div class="col-lg-12">
-                                <h1 class="text-center">Create a new service</h1>
+                                <h1 class="text-center">Edit service</h1>
                             </div>
                             <hr>
                             <div class="col-lg-12 mb-4 order-0">
-                                <form action="{{ route('service.form') }}" method="POST">
+                                <form action="{{ route('update_ser',$service->id) }}" method="POST">
                                     @csrf
+                                    @method('PUT')
                                     <div class="mb-3">
                                         <label for="id" class="form-label">Service id*</label>
-                                        <input type="text" name="service_id" class="form-control" id="id">
+                                        <input type="text" name="service_id" value="{{ $service->service_id }}"
+                                            class="form-control" id="id">
                                         <div>
                                             @error('service_id')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -38,7 +40,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Service name*</label>
-                                        <input type="text" name="service_name" class="form-control" id="name">
+                                        <input type="text" name="service_name" value="{{ $service->service_name }}"
+                                            class="form-control" id="name">
                                         <div>
                                             @error('service_name')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -47,7 +50,8 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="charge" class="form-label">Service charge*</label>
-                                        <input type="number" name="service_charge" class="form-control" id="charge">
+                                        <input type="number" name="service_charge" value="{{ $service->service_charge }}"
+                                            class="form-control" id="charge">
                                         <div>
                                             @error('service_charge')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -57,7 +61,8 @@
                                     <div class="mb-3">
                                         <label for="days" class="form-label">minimum days taken to finish
                                             service*</label>
-                                        <input type="number" name="days" class="form-control" id="days">
+                                        <input type="number" name="days" value="{{ $service->min_days_finish }}"
+                                            class="form-control" id="days">
                                         <div>
                                             @error('days')
                                                 <span class="text-danger">{{ $message }}</span>
@@ -65,8 +70,10 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Create</button><br><br>
-                                        <a href="{{route('post.service')}}" class="btn btn-danger">Back</a>
+                                        <button type="submit" class="btn btn-primary">Update</button><br><br>
+
+                                        <a href="{{ route('post.service') }}" class="btn btn-danger">Back</a>
+
                                     </div>
                                 </form>
                             </div>
