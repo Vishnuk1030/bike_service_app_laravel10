@@ -1,18 +1,18 @@
-@extends('owner.dashboard_header')
+@extends('customer.customer_dashboard_header')
 
-@section('title','services')
+@section('title', 'services booked history')
 
 @section('content')
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!--left sidebar Menu -->
-            @include('owner.left_sidebar')
+            @include('customer.left_sidebar')
             <!-- / Menu -->
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                @include('owner.nav')
+                @include('customer.nav')
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
@@ -20,11 +20,7 @@
 
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <p class="text-center mt-3">
-                                    <a href="{{ route('service.form') }}" class="btn btn-primary">Create service</a>
-                                </p>
-                            </div>
+                            <h1 class="text-center">Services Booked Status</h1>
                             <hr>
                             <div class="col-lg-12 mb-4 order-0">
                                 <table class="table table-striped">
@@ -34,28 +30,28 @@
                                             <th scope="col">Service Name</th>
                                             <th scope="col">Service Charge</th>
                                             <th scope="col">Minimum days taken to finish service</th>
-                                            <th scope="col">Action</th>
+                                            <th scope="col">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($services as $service)
+                                        @foreach ($services_statuss as $status)
                                             <tr class="text-center">
-                                                <th scope="row">{{ $service->service_id }}</th>
-                                                <td>{{ $service->service_name }}</td>
-                                                <td>{{ $service->service_charge }} ₹</td>
-                                                <td>{{ $service->min_days_finish }}-days</td>
+                                                <th scope="row">{{ $status->service_id }}</th>
+                                                <td>{{ $status->service_name }}</td>
+                                                <td>{{ $status->service_charge }} ₹</td>
+                                                <td>{{ $status->min_days_finish }}-days</td>
                                                 <td>
-                                                    <a href="{{route('edit_ser',encrypt($service->id))}}"><img src="{{asset('assets/img/edit.png')}}" alt="dlt" width="20px"></a>
-                                                    <a href="{{ route('delete_ser', $service->id) }}"
-                                                        onclick="return confirm('Are you sure want to delete?')"><img src="{{asset('assets/img/delete.png')}}" alt="dlt" width="20px"></a>
+                                                    @if ($status->service_status == '2')
+                                                        <h3 class="text-success">Booked</h3>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div>
+                                {{-- <div>
                                     {{ $services->links() }}
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="col-lg-4 col-md-4 order-1">
                                 <div class="row">

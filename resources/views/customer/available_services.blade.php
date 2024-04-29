@@ -1,18 +1,18 @@
-@extends('owner.dashboard_header')
+@extends('customer.customer_dashboard_header')
 
-@section('title','services')
+@section('title', ' Available services')
 
 @section('content')
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
             <!--left sidebar Menu -->
-            @include('owner.left_sidebar')
+            @include('customer.left_sidebar')
             <!-- / Menu -->
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                @include('owner.nav')
+                @include('customer.nav')
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
@@ -20,11 +20,7 @@
 
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
-                            <div class="col-lg-12">
-                                <p class="text-center mt-3">
-                                    <a href="{{ route('service.form') }}" class="btn btn-primary">Create service</a>
-                                </p>
-                            </div>
+                            <h1 class="text-center">Services Available</h1>
                             <hr>
                             <div class="col-lg-12 mb-4 order-0">
                                 <table class="table table-striped">
@@ -45,9 +41,8 @@
                                                 <td>{{ $service->service_charge }} ₹</td>
                                                 <td>{{ $service->min_days_finish }}-days</td>
                                                 <td>
-                                                    <a href="{{route('edit_ser',encrypt($service->id))}}"><img src="{{asset('assets/img/edit.png')}}" alt="dlt" width="20px"></a>
-                                                    <a href="{{ route('delete_ser', $service->id) }}"
-                                                        onclick="return confirm('Are you sure want to delete?')"><img src="{{asset('assets/img/delete.png')}}" alt="dlt" width="20px"></a>
+                                                    <a href="{{ url('book_service', $service->id) }}"
+                                                        class="btn btn-info">Book Service</a>
                                                 </td>
                                             </tr>
                                         @endforeach

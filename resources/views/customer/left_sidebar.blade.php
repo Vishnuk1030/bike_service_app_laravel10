@@ -16,46 +16,38 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboards -->
-        <li class="menu-item {{ Route::is('dashboard') ? 'active' : '' }}">
-            <a href="{{ route('dashboard') }}" class="menu-link">
+        <li class="menu-item {{ Route::is('customer.dashboard') ? 'active' : '' }}">
+            <a href="{{ route('customer.dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
             </a>
         </li>
 
         <!-- Layouts -->
-        <li class="menu-item {{ Route::is('post.service','service.form','service.form','edit_ser') ? 'active' : '' }}">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <li class="menu-item {{ Route::is('Available.services') ? 'active' : '' }}">
+            <a href="{{ route('Available.services') }}" class="menu-link ">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Services</div>
+                <div data-i18n="Layouts">Available Services</div>
             </a>
 
-            <ul class="menu-sub">
-                <li class="menu-item {{ Route::is('post.service','service.form') ? 'active' : '' }}">
-                    <a href="{{ route('post.service') }}" class="menu-link">
-                        <div data-i18n="Without menu">Post new services</div>
-                    </a>
-                </li>
-            </ul>
         </li>
 
         <!-- Front Pages -->
-        <li class="menu-item">
+        <li class="menu-item {{ Route::is('booked.history', 'booked.status') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-store"></i>
-                <div data-i18n="Front Pages">Bookings</div>
+                <div data-i18n="Front Pages">Services Booked</div>
 
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
-                        <div data-i18n="Landing">View Booking</div>
+                <li class="menu-item {{ Route::is('booked.history') ? 'active' : '' }}">
+                    <a href="{{ route('booked.history') }}" class="menu-link">
+                        <div data-i18n="Landing">History</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#"
-                        class="menu-link">
-                        <div data-i18n="Pricing">Booking Status</div>
+                <li class="menu-item {{ Route::is('booked.status') ? 'active' : '' }}">
+                    <a href="{{ route('booked.status') }}" class="menu-link">
+                        <div data-i18n="Pricing">Status</div>
                     </a>
                 </li>
 
@@ -77,7 +69,7 @@
 
         {{-- logout --}}
         <li class="menu-item">
-            <a href="{{ route('owner.logout') }}" class="menu-link"
+            <a href="{{ route('customer.logout') }}" class="menu-link"
                 onclick="return confirm('Are you sure want to Logout ?')">
                 <i class="bx bx-power-off me-2"></i>
                 <div data-i18n="logout" class="p-1">Logout</div>

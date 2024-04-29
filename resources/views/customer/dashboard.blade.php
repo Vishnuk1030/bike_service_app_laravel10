@@ -1,4 +1,4 @@
-@extends('owner.dashboard_header')
+@extends('customer.customer_dashboard_header')
 
 @section('title','Dashboard')
 
@@ -8,14 +8,13 @@
         <div class="layout-container">
             <!--left sidebar Menu -->
 
-            @include('owner.left_sidebar')
+            @include('customer.left_sidebar')
             <!-- / Menu -->
-
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
 
-                @include('owner.nav')
+                @include('customer.nav')
 
                 <!-- / Navbar -->
 
@@ -30,8 +29,8 @@
                                     <div class="d-flex align-items-end row">
                                         <div class="col-sm-7">
                                             <div class="card-body">
-                                                <h5 class="card-title text-primary">Welcome to your admin Dashboard
-                                                    {{ $owner->name }}
+                                                <h5 class="card-title text-primary">Welcome to your user Dashboard
+
                                                     🎉</h5>
                                                 <p class="mb-4">
                                                     {{-- widget for dashboard --}}

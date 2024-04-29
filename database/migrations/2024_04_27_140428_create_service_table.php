@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('service_name')->nullable();
             $table->decimal('service_charge');
             $table->integer('min_days_finish');
+            $table->boolean('service_status')->default(1)->comment('1:Posted,2:Booked,3:Pending,4:Ready_for_delivery,5:Completed');
             $table->timestamps();
         });
     }

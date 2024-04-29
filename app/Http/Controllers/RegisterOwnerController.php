@@ -14,7 +14,7 @@ class RegisterOwnerController extends Controller
     //displaying signup-form for owner
     public function showSignupForm()
     {
-        return view('register_owner');
+        return view('owner.register_owner');
     }
     public function signup()
     {
@@ -36,15 +36,13 @@ class RegisterOwnerController extends Controller
             "cnf_password" => Hash::make($validate["cnf_password"]),
         ]);
 
-        //redirect into dashboard after signup
-        return "Welcome owner to your dashboard";
 
         //redirecting into login page after the owner signup succesfully
-        // return redirect()->route('login')->with('success', 'Sign up SuccessFully.! Now you can login');
+         return redirect()->route('login')->with('success', 'Sign up SuccessFully.! Now you can login');
     }
     public function showLoginform()
     {
-        return view('login_register');
+        return view('owner.login_owner');
     }
 
     public function login(Request $request)

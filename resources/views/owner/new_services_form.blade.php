@@ -1,4 +1,7 @@
 @extends('owner.dashboard_header')
+
+@section('title','Create service')
+
 @section('content')
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">

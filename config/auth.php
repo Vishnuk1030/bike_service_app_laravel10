@@ -43,6 +43,10 @@ return [
         'owner' => [
             'driver' => 'session',
             'provider' => 'owners',
+        ],
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
         ]
     ],
 
@@ -71,6 +75,10 @@ return [
         'owners' => [
             'driver' => 'eloquent',
             'model' => App\Models\Owner::class,
+        ],
+        'customers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Customer::class,
         ]
 
         // 'users' => [
