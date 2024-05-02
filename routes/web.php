@@ -55,7 +55,7 @@ Route::get('/view_booked_service', [OwnerDashboardController::class, 'show_booke
 Route::get('/view_booked_service/{id}/view', [OwnerDashboardController::class, 'view_each_service'])->name('view.each.service');
 
 //view and change change status on owner side
-Route::get('/view_booked_status',[OwnerDashboardController::class,'show_booking_status'])->name('owner.booking.status');
+Route::get('/view_booked_status', [OwnerDashboardController::class, 'show_booking_status'])->name('owner.booking.status');
 
 
 //display the post service form
@@ -70,6 +70,16 @@ Route::get('/post_service/{id}/delete', [OwnerServiceController::class, 'Deletes
 Route::get('/post_service/{id}/edit', [OwnerServiceController::class, 'Editservice'])->name('edit_ser');
 
 Route::put('/post_service/{id}/edit', [OwnerServiceController::class, 'Updateservice'])->name('update_ser');
+
+
+//Owner  updating status into pending
+Route::get('/pending_service/{id}', [OwnerDashboardController::class, 'pending_status']);
+
+//owner updating status into ready delivery
+Route::get('/delivery_ready_service/{id}', [OwnerDashboardController::class, 'ready_for_delivery']);
+
+//owner updating the status into services completed
+Route::get('/completed_service/{id}',[OwnerDashboardController::class,'completed']);
 
 
 //Customers signup
@@ -89,7 +99,7 @@ Route::get('/customer_dashboard', [CustomerDashboardController::class, 'showDash
 //Available services on customers
 Route::get('/Available_services', [CustomerAvailableServices::class, 'Show_services'])->name('Available.services');
 
-//Customer booking services
+//Customer booking services on avialble services
 Route::get('/book_service/{id}', [CustomerBookingServices::class, 'book_service']);
 
 //services booked history

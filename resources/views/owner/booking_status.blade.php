@@ -51,12 +51,39 @@
                                                     @elseif ($booked_status->service_status == '3')
                                                         <h3 class="text-danger">pending</h3>
                                                     @elseif ($booked_status->service_status == '4')
-                                                        <h3 class="text-primary">Ready for delivery</h3>
+                                                        <h3 class="text-primary">Delivery ready</h3>
                                                     @elseif ($booked_status->service_status == '5')
                                                         <h3 class="text-success">Completed</h3>
                                                     @endif
                                                 </td>
-                                                <td></td>
+                                                <td>
+                                                    @if ($booked_status->service_status == '2')
+
+                                                        <a href="{{ url('pending_service', $booked_status->id) }}"
+                                                            class="btn btn-danger">pending</a>
+
+                                                        <a href="{{ url('delivery_ready_service', $booked_status->id) }}"
+                                                            class="btn btn-info">Delivery ready</a>
+
+                                                        <a href="{{ url('completed_service', $booked_status->id) }}"
+                                                            class="btn btn-success">completed</a>
+
+                                                    @elseif ($booked_status->service_status == '3')
+
+                                                        <a href="{{ url('delivery_ready_service', $booked_status->id) }}"
+                                                            class="btn btn-info">Delivery ready</a>
+
+                                                        <a href="{{ url('completed_service', $booked_status->id) }}"
+                                                            class="btn btn-success">completed</a>
+
+                                                    @elseif ($booked_status->service_status == '4')
+
+                                                        <a href="{{ url('completed_service', $booked_status->id) }}"
+                                                            class="btn btn-success">completed</a>
+
+                                                    @endif
+
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

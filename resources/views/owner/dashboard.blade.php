@@ -73,6 +73,7 @@
                                                     </div>
 
                                                 </div>
+                                                {{--  /widget for dashboard --}}
 
                                                 </p>
 
@@ -85,7 +86,8 @@
                                                     height="140" alt="View Badge User"
                                                     data-app-dark-img="illustrations/man-with-laptop-dark.png"
                                                     data-app-light-img="illustrations/man-with-laptop-light.png" /> --}}
-                                                <img src="{{ asset('assets/img/owner_logo.png') }}" alt="logo" class="rounded" width="500px">
+                                                <img src="{{ asset('assets/img/owner_logo.png') }}" alt="logo"
+                                                    class="rounded" width="500px">
                                             </div>
                                         </div>
                                     </div>

@@ -48,7 +48,7 @@
                                                     @elseif ($status->service_status == '3')
                                                         <h3 class="text-danger">pending</h3>
                                                     @elseif ($status->service_status == '4')
-                                                        <h3 class="text-primary">Ready for delivery</h3>
+                                                        <h3 class="text-primary">Delivery ready</h3>
                                                     @elseif ($status->service_status == '5')
                                                         <h3 class="text-success">Completed</h3>
                                                     @endif

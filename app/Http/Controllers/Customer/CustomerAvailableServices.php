@@ -16,13 +16,13 @@ class CustomerAvailableServices extends Controller
     }
     public function show_booked_history()
     {
-        $booked_services = Service::where('service_status', '=', '2')->where('customer_id', '=', Auth::guard('customer')->user()->id)->get();
+        $booked_services = Service::whereIn('service_status', [2, 3, 4, 5])->where('customer_id', '=', Auth::guard('customer')->user()->id)->get();
         return view('customer.services_booked_history', compact('booked_services'));
     }
 
     public function show_booked_status()
     {
-        $services_statuss = Service::where('service_status', '=', '2')->where('customer_id', '=', Auth::guard('customer')->user()->id)->get();
+        $services_statuss = Service::whereIn('service_status', [2, 3, 4, 5])->where('customer_id', '=', Auth::guard('customer')->user()->id)->get();
         return view('customer.services_booked_status', compact('services_statuss'));
     }
 }

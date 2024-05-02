@@ -38,35 +38,45 @@
                                                     <div class="col-md-4">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">Special title treatment</h5>
-                                                                <p class="card-text">With supporting text below as a natural
-                                                                    lead-in to additional content.</p>
-                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                                <h5 class="card-title">Total services </h5>
+                                                                <h1 class="card-text">{{ $total_services }}</h1>
+                                                                <a href="#"
+                                                                    class="text-blue d-flex align-items-center text-decoration-none">View
+                                                                    report <i
+                                                                        class="fa fa-chevron-right ms-2 text-blue text-opacity-50"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">Special title treatment</h5>
-                                                                <p class="card-text">With supporting text below as a natural
-                                                                    lead-in to additional content.</p>
-                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                                <h5 class="card-title">Services booked</h5>
+                                                                <h1 class="card-text">{{ $total_services_booked->count() }}
+                                                                </h1>
+                                                                <a href="#"
+                                                                    class="text-blue d-flex align-items-center text-decoration-none">View
+                                                                    report <i
+                                                                        class="fa fa-chevron-right ms-2 text-blue text-opacity-50"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">Special title treatment</h5>
-                                                                <p class="card-text">With supporting text below as a natural
-                                                                    lead-in to additional content.</p>
-                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                                <h5 class="card-title">Services completed</h5>
+                                                                <h1 class="card-text">{{ $completed_services->count() }}
+                                                                </h1>
+                                                                <a href="#"
+                                                                    class="text-blue d-flex align-items-center text-decoration-none">View
+                                                                    report <i
+                                                                        class="fa fa-chevron-right ms-2 text-blue text-opacity-50"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                 </div>
+                                                {{--  /widget for dashboard --}}
+
 
                                                 </p>
 
@@ -79,7 +89,8 @@
                                                     height="140" alt="View Badge User"
                                                     data-app-dark-img="illustrations/man-with-laptop-dark.png"
                                                     data-app-light-img="illustrations/man-with-laptop-light.png" /> --}}
-                                                    <img src="{{ asset('assets/img/customer_logo.jpg') }}" alt="logo" class="rounded" width="250px">
+                                                <img src="{{ asset('assets/img/customer_logo.jpg') }}" alt="logo"
+                                                    class="rounded" width="200px">
 
                                             </div>
                                         </div>
