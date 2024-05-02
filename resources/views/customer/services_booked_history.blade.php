@@ -17,7 +17,6 @@
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
-
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
                             <h1 class="text-center">Services Booked History</h1>
@@ -30,7 +29,7 @@
                                             <th scope="col">Service Name</th>
                                             <th scope="col">Service Charge</th>
                                             <th scope="col">Minimum days taken to finish service</th>
-
+                                            <th scope="col">Booked date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,7 +39,7 @@
                                                 <td>{{ $booked_service->service_name }}</td>
                                                 <td>{{ $booked_service->service_charge }} ₹</td>
                                                 <td>{{ $booked_service->min_days_finish }}-days</td>
-
+                                                <td>{{ date('d/m/Y', strtotime($booked_service->updated_at)) }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -64,14 +63,12 @@
                         </div>
                     </div>
                     <!-- / Content -->
-
                     <div class="content-backdrop fade"></div>
                 </div>
                 <!-- Content wrapper -->
             </div>
             <!-- / Layout page -->
         </div>
-
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>

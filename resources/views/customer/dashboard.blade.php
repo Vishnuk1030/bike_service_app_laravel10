@@ -1,6 +1,6 @@
 @extends('customer.customer_dashboard_header')
 
-@section('title','Dashboard')
+@section('title', 'Dashboard')
 
 @section('content')
     <!-- Layout wrapper -->
@@ -29,8 +29,8 @@
                                     <div class="d-flex align-items-end row">
                                         <div class="col-sm-7">
                                             <div class="card-body">
-                                                <h5 class="card-title text-primary">Welcome to your user Dashboard
-
+                                                <h5 class="card-title text-primary">Welcome,
+                                                    {{ Auth::guard('customer')->user()->name }} to your Customer Dashboard
                                                     🎉</h5>
                                                 <p class="mb-4">
                                                     {{-- widget for dashboard --}}
@@ -75,10 +75,12 @@
                                         </div>
                                         <div class="col-sm-5 text-center text-sm-left">
                                             <div class="card-body pb-0 px-0 px-md-4">
-                                                <img src="../assets/img/illustrations/man-with-laptop-light.png"
+                                                {{-- <img src="../assets/img/illustrations/man-with-laptop-light.png"
                                                     height="140" alt="View Badge User"
                                                     data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                                                    data-app-light-img="illustrations/man-with-laptop-light.png" />
+                                                    data-app-light-img="illustrations/man-with-laptop-light.png" /> --}}
+                                                    <img src="{{ asset('assets/img/customer_logo.jpg') }}" alt="logo" class="rounded" width="250px">
+
                                             </div>
                                         </div>
                                     </div>

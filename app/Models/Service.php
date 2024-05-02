@@ -15,4 +15,9 @@ class Service extends Model
         "service_charge",
         "min_days_finish",
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

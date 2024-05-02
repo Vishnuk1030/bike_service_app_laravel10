@@ -48,6 +48,16 @@ Route::get('/logout', [RegisterOwnerController::class, 'logout'])->name('owner.l
 //post new room
 Route::get('/post_service', [OwnerDashboardController::class, 'showpostservice'])->name('post.service');
 
+//view booked serices on owner side
+Route::get('/view_booked_service', [OwnerDashboardController::class, 'show_booked_service'])->name('view.booked.services');
+
+//view each booked services
+Route::get('/view_booked_service/{id}/view', [OwnerDashboardController::class, 'view_each_service'])->name('view.each.service');
+
+//view and change change status on owner side
+Route::get('/view_booked_status',[OwnerDashboardController::class,'show_booking_status'])->name('owner.booking.status');
+
+
 //display the post service form
 Route::get('/post_service/create_new_services', [OwnerServiceController::class, 'show_service_form'])->name('service.form');
 

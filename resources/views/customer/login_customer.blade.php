@@ -1,5 +1,7 @@
 @extends('layout.header')
 
+@section('title','login page')
+
 @section('content')
     <section class="container">
         <div class="form login">

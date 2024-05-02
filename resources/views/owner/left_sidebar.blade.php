@@ -24,14 +24,15 @@
         </li>
 
         <!-- Layouts -->
-        <li class="menu-item {{ Route::is('post.service','service.form','service.form','edit_ser') ? 'active' : '' }}">
+        <li
+            class="menu-item {{ Route::is('post.service', 'service.form', 'service.form', 'edit_ser') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Services</div>
             </a>
 
             <ul class="menu-sub">
-                <li class="menu-item {{ Route::is('post.service','service.form') ? 'active' : '' }}">
+                <li class="menu-item {{ Route::is('post.service', 'service.form') ? 'active' : '' }}">
                     <a href="{{ route('post.service') }}" class="menu-link">
                         <div data-i18n="Without menu">Post new services</div>
                     </a>
@@ -40,21 +41,21 @@
         </li>
 
         <!-- Front Pages -->
-        <li class="menu-item">
+        <li
+            class="menu-item {{ Route::is('view.booked.services', 'view.each.service', 'owner.booking.status') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-store"></i>
                 <div data-i18n="Front Pages">Bookings</div>
 
             </a>
             <ul class="menu-sub">
-                <li class="menu-item">
-                    <a href="#" class="menu-link">
+                <li class="menu-item {{ Route::is('view.booked.services', 'view.each.service') ? 'active' : '' }}">
+                    <a href="{{ route('view.booked.services') }}" class="menu-link">
                         <div data-i18n="Landing">View Booking</div>
                     </a>
                 </li>
-                <li class="menu-item">
-                    <a href="#"
-                        class="menu-link">
+                <li class="menu-item {{ Route::is('owner.booking.status') ? 'active' : '' }}">
+                    <a href="{{ route('owner.booking.status') }}" class="menu-link">
                         <div data-i18n="Pricing">Booking Status</div>
                     </a>
                 </li>

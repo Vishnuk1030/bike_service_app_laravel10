@@ -1,6 +1,6 @@
 @extends('owner.dashboard_header')
 
-@section('title','Dashboard')
+@section('title', 'Dashboard')
 
 @section('content')
     <!-- Layout wrapper -->
@@ -30,39 +30,44 @@
                                     <div class="d-flex align-items-end row">
                                         <div class="col-sm-7">
                                             <div class="card-body">
-                                                <h5 class="card-title text-primary">Welcome to your admin Dashboard
-                                                    {{ $owner->name }}
-                                                    🎉</h5>
+                                                <h5 class="card-title text-primary">Welcome,
+                                                    {{ Auth::guard('owner')->user()->name }} to your Dashboard🎉</h5>
                                                 <p class="mb-4">
                                                     {{-- widget for dashboard --}}
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">Special title treatment</h5>
-                                                                <p class="card-text">With supporting text below as a natural
-                                                                    lead-in to additional content.</p>
-                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                                <h5 class="card-title">Number of Customers</h5>
+                                                                <h1 class="card-text">{{ $customers }}</h1>
+                                                                <a href="#"
+                                                                    class="text-blue d-flex align-items-center text-decoration-none">View
+                                                                    report <i
+                                                                        class="fa fa-chevron-right ms-2 text-blue text-opacity-50"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">Special title treatment</h5>
-                                                                <p class="card-text">With supporting text below as a natural
-                                                                    lead-in to additional content.</p>
-                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                                <h5 class="card-title">Number of Services</h5>
+                                                                <h1 class="card-text">{{ $services }}</h1>
+                                                                <a href="#"
+                                                                    class="text-blue d-flex align-items-center text-decoration-none">View
+                                                                    report <i
+                                                                        class="fa fa-chevron-right ms-2 text-blue text-opacity-50"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h5 class="card-title">Special title treatment</h5>
-                                                                <p class="card-text">With supporting text below as a natural
-                                                                    lead-in to additional content.</p>
-                                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                                                <h5 class="card-title">Number of Booking</h5>
+                                                                <h1 class="card-text">{{ $services_booked }}</h1>
+                                                                <a href="#"
+                                                                    class="text-blue d-flex align-items-center text-decoration-none">View
+                                                                    report <i
+                                                                        class="fa fa-chevron-right ms-2 text-blue text-opacity-50"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -76,10 +81,11 @@
                                         </div>
                                         <div class="col-sm-5 text-center text-sm-left">
                                             <div class="card-body pb-0 px-0 px-md-4">
-                                                <img src="../assets/img/illustrations/man-with-laptop-light.png"
+                                                {{-- <img src="../assets/img/illustrations/man-with-laptop-light.png"
                                                     height="140" alt="View Badge User"
                                                     data-app-dark-img="illustrations/man-with-laptop-dark.png"
-                                                    data-app-light-img="illustrations/man-with-laptop-light.png" />
+                                                    data-app-light-img="illustrations/man-with-laptop-light.png" /> --}}
+                                                <img src="{{ asset('assets/img/owner_logo.png') }}" alt="logo" class="rounded" width="500px">
                                             </div>
                                         </div>
                                     </div>
