@@ -58,14 +58,14 @@
             <span class="menu-header-text">Apps &amp; Pages</span>
         </li> --}}
         <!-- Apps -->
-        <li class="menu-item">
+        {{-- <li class="menu-item">
             <a href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-email.html"
                 target="_blank" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-envelope"></i>
                 <div data-i18n="Email">Email</div>
                 <div class="badge bg-label-primary fs-tiny rounded-pill ms-auto"></div>
             </a>
-        </li>
+        </li> --}}
 
         {{-- logout --}}
         <li class="menu-item">

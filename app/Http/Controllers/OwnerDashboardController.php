@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ReadyforDelivery;
 use App\Models\Customer;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OwnerDashboardController extends Controller
 {
@@ -18,7 +20,7 @@ class OwnerDashboardController extends Controller
         $services = Service::count();
 
         //counting the booked services
-        $services_booked = Service::where('service_status', '=', '2')->count();
+        $services_booked = Service::where('service_status', [2, 3, 4, 5])->count();
 
         //passing the variable to blade file using compact()-method
         return view('owner.dashboard', compact('customers', 'services', 'services_booked'));
@@ -80,6 +82,10 @@ class OwnerDashboardController extends Controller
 
         //save the update
         $data->save();
+
+        //sending email message into customer when service is As soon as Booking is ready for Delivery
+
+        Mail::to($data->customer->email)->send(new ReadyforDelivery());
 
         return redirect()->back()->with('success', 'Status Changed to Ready for delivery');
     }

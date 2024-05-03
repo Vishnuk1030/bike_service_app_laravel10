@@ -17,4 +17,6 @@ class Customer extends Authenticatable
         'password',
         'cnf_password'
     ];
+
+
 }
