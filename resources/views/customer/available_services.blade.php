@@ -48,9 +48,12 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {{-- pagination --}}
                                 <div>
                                     {{ $services->links() }}
                                 </div>
+                                {{-- / pagination --}}
+
                             </div>
                             <div class="col-lg-4 col-md-4 order-1">
                                 <div class="row">

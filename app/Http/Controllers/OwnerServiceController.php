@@ -24,7 +24,7 @@ class OwnerServiceController extends Controller
             "days" => "required",
         ]);
 
-        //inserting datas into DB
+        //inserting datas into model DataBase
         Service::create([
             "service_id" => $validated["service_id"],
             "service_name" => $validated["service_name"],
@@ -35,33 +35,45 @@ class OwnerServiceController extends Controller
         //redirecting into page and showing success msg
         return redirect()->route('post.service')->with('success', 'New services Created Successfully.!');
     }
+
     //delete the services
     public function Deleteservice(Service $id)
     {
+        //deleteing the specific services by using id
         $id->delete();
+        //redirecting back with success message
         return redirect()->route('post.service')->with('success', 'Service deleted Successfully.!');
     }
+
     //edit the services
     public function Editservice($id)
     {
+        //fetching the specific serivces details selected by Owner using the id
         $service = Service::findOrFail(decrypt($id));
+        //return services to view
         return view('owner.edit_service', compact('service'));
     }
 
+    //updating the services
     public function Updateservice(Request $request, $id)
     {
+        //validating the updated datas
         $request->validate([
             "service_id" => "required",
             "service_name" => "required",
             "service_charge" => "required",
             "days" => "required",
         ]);
+
+        //updating the validated datas into model database
         Service::findOrFail($id)->update([
             "service_id" => $request->service_id,
             "service_name" => $request->service_name,
             "service_charge" => $request->service_charge,
             "min_days_finish" => $request->days,
         ]);
+
+        //redirecting after update of data
         return redirect()->route('post.service')->with('success', 'Services Updated Successfully..!');
     }
 }
